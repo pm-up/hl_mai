@@ -77,7 +77,7 @@ target_link_libraries(${AUTH_SERVICE} PRIVATE
                              "mysqlclient"
                              ZLIB::ZLIB)
 
-add_executable(${CART_SERVICE} cart_main.cpp 
+add_executable(${CART_SERVICE}   cart_service/main.cpp 
                                  cart_service/src/request_handler_factory.cpp
                                  cart_service/src/service_initializer.cpp
                                  cart_service/cart_base.cpp
@@ -96,7 +96,7 @@ target_link_libraries(${CART_SERVICE} PRIVATE
                              "mysqlclient"
                              ZLIB::ZLIB)
 
-add_executable(${PRODUCT_SERVICE} delivery_main.cpp 
+add_executable(${PRODUCT_SERVICE} product_service/main.cpp 
                                  product_service/src/product_base.cpp
                                  product_service/src/product_validator.cpp
                                  product_service/src/product.cpp
