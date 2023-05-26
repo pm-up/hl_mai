@@ -80,8 +80,8 @@ target_link_libraries(${AUTH_SERVICE} PRIVATE
 add_executable(${CART_SERVICE}   cart_service/main.cpp 
                                  cart_service/src/request_handler_factory.cpp
                                  cart_service/src/service_initializer.cpp
-                                 cart_service/cart_base.cpp
-                                 cart_service/cart.cpp)
+                                 cart_service/src/cart_base.cpp
+                                 cart_service/src/cart.cpp)
 
 target_include_directories(${CART_SERVICE} PRIVATE "${CMAKE_BINARY_DIR}")
 target_compile_options(${CART_SERVICE} PRIVATE -Wall -Wextra -pedantic -Werror )
