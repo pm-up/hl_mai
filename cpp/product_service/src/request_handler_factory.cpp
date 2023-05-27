@@ -1,11 +1,11 @@
-#include "auth_data.h"
-#include "authentication_request.h"
-#include "default_request_handler.h"
-#include "healthcheck_handler.h"
-#include "product.h"
-#include "product_base.h"
-#include "product_validator.h"
-#include "request_handler_factory.h"
+#include "cpp/utils/include/auth_data.h"
+#include "cpp/utils/include/authentication_request.h"
+#include "cpp/utils/include/default_request_handler.h"
+#include "cpp/utils/include/healthcheck_handler.h"
+#include "cpp/product_service/include/product.h"
+#include "cpp/product_service/include/product_base.h"
+#include "cpp/product_service/include/product_validator.h"
+#include "cpp/product_service/include/request_handler_factory.h"
 
 #include <Poco/Net/HTMLForm.h>
 #include <Poco/Net/HTTPServerRequest.h>

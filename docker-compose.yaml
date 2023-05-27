@@ -14,8 +14,7 @@ services:
     volumes:
       - db-node-1-data:/var/lib/mysql
     healthcheck:
-      test: "/usr/bin/mysql --user=${MYSQL_USER} 
---password=${MYSQL_PASSWORD} --execute \"SHOW DATABASES;\""
+      test: "/usr/bin/mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute \"SHOW DATABASES;\""
       timeout: 20s
       retries: 5
     networks:
@@ -34,8 +33,7 @@ services:
     volumes:
       - db-node-2-data:/var/lib/mysql
     healthcheck:
-      test: "/usr/bin/mysql --user=${MYSQL_USER} 
---password=${MYSQL_PASSWORD} --execute \"SHOW DATABASES;\""
+      test: "/usr/bin/mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute \"SHOW DATABASES;\""
       timeout: 20s
       retries: 5
     networks:
@@ -54,8 +52,7 @@ services:
     volumes:
       - db-node-service-data:/var/lib/mysql
     healthcheck:
-      test: "/usr/bin/mysql --user=${MYSQL_USER} 
---password=${MYSQL_PASSWORD} --execute \"SHOW DATABASES;\""
+      test: "/usr/bin/mysql --user=${MYSQL_USER}--password=${MYSQL_PASSWORD} --execute \"SHOW DATABASES;\""
       timeout: 20s
       retries: 5
     networks:
@@ -73,9 +70,7 @@ services:
       - "6032:6032"
       - "6033:6033"
     healthcheck:
-      test: "/usr/bin/mysql --user=${MYSQL_USER} 
---password=${MYSQL_PASSWORD} --host=127.0.0.1 --port=6033 --execute \"SHOW 
-DATABASES;\""
+      test: "/usr/bin/mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --host=127.0.0.1 --port=6033 --execute \"SHOW DATABASES;\""
       timeout: 20s
       retries: 5
     depends_on:
@@ -101,8 +96,7 @@ DATABASES;\""
     volumes:
       - db-node-3-data:/var/lib/mysql
     healthcheck:
-      test: "/usr/bin/mysql --user=${MYSQL_USER} 
---password=${MYSQL_PASSWORD} --execute \"SHOW DATABASES;\""
+      test: "/usr/bin/mysql --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --execute \"SHOW DATABASES;\""
       timeout: 20s
       retries: 5
     networks:

@@ -1,16 +1,15 @@
 openapi: "3.0.0"
 info:
   version: "1.0.0"
-  title: "Highload lab API description"
-  description: Описание API для домашнего задания по курсу Архитектура 
-программных систем
+  title: 'API CartService'
+  description: API for working with cart
 servers:
   - url: http://localhost:8083
     description: Cart service
 paths:
   /add_item:
     post:
-      summary: Add item to cart for given user
+      summary: Add item to cart
       requestBody:
         content:
           "application/json":
@@ -18,17 +17,16 @@ paths:
               $ref: "#/components/schemas/AddItemRequest"
       responses:
         "200":
-          description: Added item to cart for given user
+          description: Added item to cart
         "400":
-          description: Necessary request parameters missing
+          description: Some of parameters missing
         "401":
-          description: Failed to authenticate user using provided 
-credentials
+          description: Cannot authenticate
         "500":
           description: Unexpected error
   /get_cart:
     get:
-      summary: Get items in cart for given user
+      summary: Get items from cart
       parameters:
         - name: user_id
           description: User's id
@@ -38,14 +36,13 @@ credentials
             type: integer
       responses:
         "200":
-          description: Items in cart for given user
+          description: Get items from cart
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Cart"
         "401":
-          description: Failed to authenticate user using provided 
-credentials
+          description: Cannot authenticate
         "500":
           description: Unexpected error
 components:

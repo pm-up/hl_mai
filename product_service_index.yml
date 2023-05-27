@@ -1,12 +1,11 @@
 openapi: "3.0.0"
 info:
   version: "1.0.0"
-  title: "Highload lab API description"
-  description: Описание API для домашнего задания по курсу Архитектура 
-программных систем
+  title: 'API ProductService'
+  description: API for working with ProductService
 servers:
   - url: http://localhost:8082
-    description: Product service
+    description: Item service
 paths:
   /add_product:
     post:
@@ -18,16 +17,15 @@ paths:
               $ref: "#/components/schemas/Product"
       responses:
         "200":
-          description: Added product's id
+          description: Added product id
           content:
             application/json:
               schema:
                 type: integer
         "400":
-          description: Necessary request parameters missing
+          description: Some parameters missing
         "401":
-          description: Failed to authenticate user using provided 
-credentials
+          description: Cannot authenticate
         "500":
           description: Unexpected error
   /get_all_products:
@@ -41,8 +39,7 @@ credentials
               schema:
                 $ref: "#/components/schemas/ProductsList"
         "401":
-          description: Failed to authenticate user using provided 
-credentials
+          description: Cannot authenticate
         "500":
           description: Unexpected error
 components:

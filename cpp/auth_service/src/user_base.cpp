@@ -1,4 +1,4 @@
-#include "user_base.h"
+#include "cpp/auth_service/include/user_base.h"
 
 #include <db_session_manager.h>
 
@@ -35,7 +35,7 @@ void UserBase::initialize() {
                 << "CREATE TABLE IF NOT EXISTS `User` (`id` INT NOT NULL 
 AUTO_INCREMENT PRIMARY KEY,"
                    "`login` VARCHAR(30) NOT NULL UNIQUE, "
-                   "`password` VARCHAR(20) NOT NULL, `first_name` 
+                   "`password` VARCHAR(30) NOT NULL, `first_name` 
 VARCHAR(30) NOT NULL, `last_name` VARCHAR(30) NOT NULL, "
                    "`email` VARCHAR(50) NOT NULL UNIQUE) ";
 

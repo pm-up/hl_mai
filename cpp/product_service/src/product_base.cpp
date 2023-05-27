@@ -1,6 +1,6 @@
-#include "product_base.h"
+#include "cpp/product_service/include/product_base.h"
 
-#include <db_session_manager.h>
+#include "cpp/utils/include/db_session_manager.h"
 
 using namespace Poco::Data::Keywords;
 

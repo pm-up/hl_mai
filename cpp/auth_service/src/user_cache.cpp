@@ -1,4 +1,4 @@
-#include "user_cache.h"
+#include "cpp/auth_service/include/user_cache.h"
 
 namespace {
     std::string getConnectionString() {

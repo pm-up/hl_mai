@@ -1,4 +1,4 @@
-#include "product.h"
+#include "cpp/product_service/include/product.h"
 
 #include <Poco/JSON/Object.h>
 

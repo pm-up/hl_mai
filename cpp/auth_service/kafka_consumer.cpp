@@ -1,6 +1,6 @@
-#include "kafka_config.h"
-#include "user.h"
-#include "user_base.h"
+#include "cpp/auth_service/include/kafka_config.h"
+#include "cpp/auth_service/include/user.h"
+#include "cpp/auth_service/include/user_base.h"
 
 #include <cppkafka/cppkafka.h>
 

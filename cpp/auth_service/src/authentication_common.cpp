@@ -1,5 +1,5 @@
-#include "authentication_common.h"
-#include "user_base.h"
+#include "cpp/auth_service/include/authentication_common.h"
+#include "cpp/auth_service/include/user_base.h"
 
 #include <Poco/Base64Decoder.h>
 

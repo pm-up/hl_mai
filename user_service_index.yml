@@ -1,9 +1,8 @@
 openapi: "3.0.0"
 info:
   version: "1.0.0"
-  title: "Highload lab API description"
-  description: Описание API для домашнего задания по курсу Архитектура 
-программных систем
+  title: 'API ProductService'
+  description: API for working with UserService
 servers:
   - url: http://localhost:8081
     description: User service
@@ -19,8 +18,7 @@ paths:
               schema:
                 type: string
         "401":
-          description: Failed to authenticate user using provided 
-credentials
+          description: Cannot authenticate
   /register:
     post:
       summary: Register new user
@@ -31,15 +29,15 @@ credentials
               $ref: "#/components/schemas/RegisterUserRequest"
       responses:
         "201":
-          description: Added user's id
+          description: Added user id
           content:
             application/json:
               schema:
                 type: integer
         "400":
-          description: Necessary request parameters missing
+          description: Some parameters missing
         "409":
-          description: User with such login/email already exists
+          description: User with such login or email already exists
         "500":
           description: Unexpected error
   /search_by_name:
@@ -66,10 +64,9 @@ credentials
               schema:
                 $ref: "#/components/schemas/UsersList"
         "400":
-          description: Necessary request parameters missing
+          description: Some parameters missing
         "401":
-          description: Failed to authenticate user using provided 
-credentials
+          description: Cannot authenticate
         "500":
           description: Unexpected error
   /search_by_login:
@@ -90,10 +87,9 @@ credentials
               schema:
                 $ref: "#/components/schemas/User"
         "400":
-          description: Necessary request parameters missing
+          description: Some parameters missing
         "401":
-          description: Failed to authenticate user using provided 
-credentials
+          description: Cannot authenticate
         "500":
           description: Unexpected error
 components:
