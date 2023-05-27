@@ -12,4 +12,4 @@ add_executable(product_service
         main.cpp)
 
 target_link_libraries(product_service PRIVATE utils)
-target_include_directories(product_service PRIVATE include)
+target_include_directories(product_service PRIVATE utils include)
