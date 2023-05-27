@@ -8,7 +8,7 @@ RUN git clone -b master https://github.com/pocoproject/poco.git && cd poco && mk
 RUN git clone https://github.com/tdv/redis-cpp.git && cd redis-cpp && mkdir build && cd build && cmake .. && make && sudo make install && cd .. && cd .. 
 RUN git clone https://github.com/edenhill/librdkafka.git && cd librdkafka && ./configure && make && sudo make install && cd 
 RUN git clone https://github.com/mfontanini/cppkafka && cd cppkafka && mkdir build && cd build && cmake .. && make && sudo make install && cd 
-RUN git clone https://github.com/pm-up/tst.git code
+RUN git clone https://github.com/pm-up/hl_mai.git code
 RUN cd code/cpp && mkdir build && cd build && cmake ../ -DCMAKE_BUILD_TYPE=Release && cmake --build .
 
 COPY run_service.sh code
