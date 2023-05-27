@@ -1,7 +1,7 @@
 #include "include/request_handler_factory.h"
 #include "include/service_initializer.h"
 
-#include "cpp/utils/include/http_web_server.h"
+#include <cpp/utils/include/http_web_server.h>
 
 int main(int argc, char** argv) {
     HttpWebServer<ServiceInitializer, RequestHandlerFactory> server;
