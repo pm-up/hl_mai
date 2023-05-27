@@ -42,7 +42,7 @@ target_compile_options(${AUTH_SERVICE} PRIVATE -Wall -Wextra -pedantic -Werror )
 set_target_properties(${AUTH_SERVICE} PROPERTIES LINKER_LANGUAGE CXX)
 set_target_properties(${AUTH_SERVICE} PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)
 
-target_link_libraries(${AUTH_SERVICE} PRIVATE 
+target_link_libraries(${AUTH_SERVICE} PRIVATE utils
                              ${CMAKE_THREAD_LIBS_INIT} 
                              ${Poco_LIBRARIES}
                              "PocoData"
@@ -61,7 +61,7 @@ target_compile_options(${CART_SERVICE} PRIVATE -Wall -Wextra -pedantic -Werror )
 set_target_properties(${CART_SERVICE} PROPERTIES LINKER_LANGUAGE CXX)
 set_target_properties(${CART_SERVICE} PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)
 
-target_link_libraries(${CART_SERVICE} PRIVATE 
+target_link_libraries(${CART_SERVICE} PRIVATE utils 
                              ${CMAKE_THREAD_LIBS_INIT} 
                              ${Poco_LIBRARIES}
                              "PocoData"
@@ -81,7 +81,7 @@ target_compile_options(${PRODUCT_SERVICE} PRIVATE -Wall -Wextra -pedantic -Werro
 set_target_properties(${PRODUCT_SERVICE} PROPERTIES LINKER_LANGUAGE CXX)
 set_target_properties(${PRODUCT_SERVICE} PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)
 
-target_link_libraries(${PRODUCT_SERVICE} PRIVATE 
+target_link_libraries(${PRODUCT_SERVICE} PRIVATE utils
                              ${CMAKE_THREAD_LIBS_INIT} 
                              ${Poco_LIBRARIES}
                              "PocoData"
