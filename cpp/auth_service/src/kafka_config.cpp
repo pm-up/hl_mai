@@ -10,7 +10,6 @@ const std::string& KafkaConfig::getTopic() {
     return topic;
 }
 
-KafkaConfig::KafkaConfig() : config({{"metadata.broker.list", 
-std::getenv("KAFKA_CONNECTION_STR")},
+KafkaConfig::KafkaConfig() : config({{"metadata.broker.list", std::getenv("KAFKA_CONNECTION_STR")},
                                      {"enable.auto.commit",   false},
                                      {"group.id",             "0"}}) {}

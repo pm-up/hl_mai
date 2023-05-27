@@ -62,8 +62,7 @@ User User::fromJson(const std::string& json) {
 
     Poco::JSON::Parser parser;
     auto parsed = parser.parse(json);
-    Poco::JSON::Object::Ptr parsedJson = 
-parsed.extract<Poco::JSON::Object::Ptr>();
+    Poco::JSON::Object::Ptr parsedJson = parsed.extract<Poco::JSON::Object::Ptr>();
 
     result.login = parsedJson->getValue<std::string>("login");
     result.firstName = parsedJson->getValue<std::string>("firstName");

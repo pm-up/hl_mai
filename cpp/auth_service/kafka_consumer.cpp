@@ -28,8 +28,7 @@ int main() {
 
             if (msg.get_error()) {
                 if (!msg.is_eof()) {
-                    std::cerr << "Kafka consumer got error: " << 
-msg.get_error() << std::endl;
+                    std::cerr << "Kafka consumer got error: " << msg.get_error() << std::endl;
                 }
 
                 continue;
@@ -42,7 +41,6 @@ msg.get_error() << std::endl;
             UserBase::registerUser(User::fromJson(payload));
         }
     } catch (const std::exception& e) {
-        std::cerr << "Kafka consumer caught exception: " << e.what() << 
-std::endl;
+        std::cerr << "Kafka consumer caught exception: " << e.what() << std::endl;
     }
 }

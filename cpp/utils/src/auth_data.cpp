@@ -1,7 +1,6 @@
 #include "cpp/utils/include/auth_data.h"
 
-std::optional<AuthData> getAuthData(Poco::Net::HTTPServerRequest& request) 
-{
+std::optional<AuthData> getAuthData(Poco::Net::HTTPServerRequest& request) {
     if (!request.hasCredentials()) {
         return std::nullopt;
     }

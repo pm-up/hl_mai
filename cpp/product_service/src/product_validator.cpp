@@ -1,7 +1,6 @@
 #include "cpp/product_service/include/product_validator.h"
 
-ProductValidator::ProductValidationResult ProductValidator::validate(const 
-Product& product) {
+ProductValidator::ProductValidationResult ProductValidator::validate(const Product& product) {
     if (!validateName(product.name)) {
         return ProductValidationResult::InvalidName;
     }

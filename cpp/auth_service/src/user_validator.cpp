@@ -6,18 +6,12 @@
 UserValidationResult UserValidator::validate(const User& user) {
     using ValidationFunc = std::function<bool(const User&)>;
 
-    static const std::unordered_map<UserValidationResult, ValidationFunc> 
-resultToFunc = {
-            {UserValidationResult::InvalidLogin,     
-UserValidator::validateLogin},
-            {UserValidationResult::InvalidPassword,  
-UserValidator::validatePassword},
-            {UserValidationResult::InvalidEmail,     
-UserValidator::validateEmail},
-            {UserValidationResult::InvalidFirstName, 
-UserValidator::validateFirstName},
-            {UserValidationResult::InvalidLastName,  
-UserValidator::validateLastName},
+    static const std::unordered_map<UserValidationResult, ValidationFunc> resultToFunc = {
+            {UserValidationResult::InvalidLogin,     UserValidator::validateLogin},
+            {UserValidationResult::InvalidPassword,  UserValidator::validatePassword},
+            {UserValidationResult::InvalidEmail,     UserValidator::validateEmail},
+            {UserValidationResult::InvalidFirstName, UserValidator::validateFirstName},
+            {UserValidationResult::InvalidLastName,  UserValidator::validateLastName},
     };
 
     for (const auto& [result, func]: resultToFunc) {
@@ -42,8 +36,7 @@ bool UserValidator::validateEmail(const User& user) {
         return false;
     }
 
-    static std::regex 
-emailRegex(R""(^[\w-\.]+@([\w-]+\.)+[\w-]{2,15}$)"");
+    static std::regex emailRegex(R""(^[\w-\.]+@([\w-]+\.)+[\w-]{2,15}$)"");
 
     return std::regex_match(user.email, emailRegex);
 }

@@ -10,8 +10,6 @@ struct HttpRequestResult {
     std::string body;
 };
 
-HttpRequestResult sendHttpRequest(const std::string& host, int port, const 
-std::string& uri,
-                                  const std::string& method, const 
-AuthData& credentials,
+HttpRequestResult sendHttpRequest(const std::string& host, int port, const std::string& uri,
+                                  const std::string& method, const AuthData& credentials,
                                   const std::string& body);

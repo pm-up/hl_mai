@@ -13,8 +13,7 @@ public:
 
     std::optional<std::string> getUserFromCache(const std::string& login);
 
-    void addUserToCache(const std::string& login, const std::string& 
-userInfo);
+    void addUserToCache(const std::string& login, const std::string& userInfo);
 
 private:
     UserCache();

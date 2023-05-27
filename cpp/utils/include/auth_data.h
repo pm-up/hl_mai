@@ -10,5 +10,4 @@ struct AuthData {
     std::string credentials;
 };
 
-std::optional<AuthData> getAuthData(Poco::Net::HTTPServerRequest& 
-request);
+std::optional<AuthData> getAuthData(Poco::Net::HTTPServerRequest& request);

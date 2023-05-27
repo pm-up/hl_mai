@@ -15,35 +15,28 @@ namespace {
     class CreationHandler : public Poco::Net::HTTPRequestHandler {
     public:
         void handleRequest(Poco::Net::HTTPServerRequest& request,
-                           Poco::Net::HTTPServerResponse& response) 
-override {
+                           Poco::Net::HTTPServerResponse& response) override {
             if (auto credentials = getAuthData(request); !credentials ||
-                                                         
-!sendAuthenticationRequest(*credentials)) {
-                
-response.setStatus(Poco::Net::HTTPResponse::HTTP_UNAUTHORIZED);
+                                                         !sendAuthenticationRequest(*credentials)) {
+                response.setStatus(Poco::Net::HTTPResponse::HTTP_UNAUTHORIZED);
                 response.send();
                 return;
             }
 
             Poco::Net::HTMLForm form(request, request.stream());
 
-            if (!form.has("name") || !form.has("category") || 
-!form.has("price")) {
-                
-response.setStatus(Poco::Net::HTTPResponse::HTTP_BAD_REQUEST);
+            if (!form.has("name") || !form.has("category") || !form.has("price")) {
+                response.setStatus(Poco::Net::HTTPResponse::HTTP_BAD_REQUEST);
                 response.send();
                 return;
             }
 
-            Product product{form.get("name"), form.get("category"), 
-std::stoi(form.get("price")),
+            Product product{form.get("name"), form.get("category"), std::stoi(form.get("price")),
                             -1};
 
             if (ProductValidator::validate(product) !=
                 ProductValidator::ProductValidationResult::Ok) {
-                
-response.setStatus(Poco::Net::HTTPResponse::HTTP_BAD_REQUEST);
+                response.setStatus(Poco::Net::HTTPResponse::HTTP_BAD_REQUEST);
                 response.send();
                 return;
             }
@@ -55,11 +48,9 @@ response.setStatus(Poco::Net::HTTPResponse::HTTP_BAD_REQUEST);
                 response.setChunkedTransferEncoding(true);
                 response.setContentType("application/json");
 
-                response.send() << "{\"product_id\": " << productId << 
-"}";
+                response.send() << "{\"product_id\": " << productId << "}";
             } catch (...) {
-                
-response.setStatus(Poco::Net::HTTPResponse::HTTP_INTERNAL_SERVER_ERROR);
+                response.setStatus(Poco::Net::HTTPResponse::HTTP_INTERNAL_SERVER_ERROR);
                 response.send();
             }
         }
@@ -68,13 +59,10 @@ response.setStatus(Poco::Net::HTTPResponse::HTTP_INTERNAL_SERVER_ERROR);
     class GetAllHandler : public Poco::Net::HTTPRequestHandler {
     public:
         void handleRequest(Poco::Net::HTTPServerRequest& request,
-                           Poco::Net::HTTPServerResponse& response) 
-override {
+                           Poco::Net::HTTPServerResponse& response) override {
             if (auto credentials = getAuthData(request); !credentials ||
-                                                         
-!sendAuthenticationRequest(*credentials)) {
-                
-response.setStatus(Poco::Net::HTTPResponse::HTTP_UNAUTHORIZED);
+                                                         !sendAuthenticationRequest(*credentials)) {
+                response.setStatus(Poco::Net::HTTPResponse::HTTP_UNAUTHORIZED);
                 response.send();
                 return;
             }
@@ -102,8 +90,7 @@ response.setStatus(Poco::Net::HTTPResponse::HTTP_UNAUTHORIZED);
                     stream << "}";
                 }
             } catch (...) {
-                
-response.setStatus(Poco::Net::HTTPResponse::HTTP_INTERNAL_SERVER_ERROR);
+                response.setStatus(Poco::Net::HTTPResponse::HTTP_INTERNAL_SERVER_ERROR);
                 response.send();
             }
         }
@@ -111,10 +98,8 @@ response.setStatus(Poco::Net::HTTPResponse::HTTP_INTERNAL_SERVER_ERROR);
 }
 
 Poco::Net::HTTPRequestHandler*
-RequestHandlerFactory::createRequestHandler(const 
-Poco::Net::HTTPServerRequest& request) {
-    static auto hasSubstr = [](const std::string& text, std::string_view 
-pattern) {
+RequestHandlerFactory::createRequestHandler(const Poco::Net::HTTPServerRequest& request) {
+    static auto hasSubstr = [](const std::string& text, std::string_view pattern) {
         return text.find(pattern) != std::string::npos;
     };
 

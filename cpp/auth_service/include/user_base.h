@@ -20,16 +20,13 @@ public:
 
     static void initialize();
 
-    static bool authenticateUser(const std::string& login, const 
-std::string& password);
+    static bool authenticateUser(const std::string& login, const std::string& password);
 
     static RegisteredUserInfo registerUser(const User& user);
 
     static std::optional<User> findUserByLogin(const std::string& login);
 
-    static std::vector<User>
-    findUserByNameMasks(const std::string& firstNameMask, const 
-std::string& lastNameMask);
+    static std::vector<User> findUserByNameMasks(const std::string& firstNameMask, const std::string& lastNameMask);
 
 private:
 

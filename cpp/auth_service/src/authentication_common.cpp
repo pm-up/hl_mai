@@ -7,25 +7,20 @@
 #include <sstream>
 
 namespace {
-    using ExtractedLoginAndPassword = std::optional<std::pair<std::string, 
-std::string>>;
+    using ExtractedLoginAndPassword = std::optional<std::pair<std::string, std::string>>;
 
-    ExtractedLoginAndPassword extractLoginAndPassword(const std::string& 
-encodedStr) {
+    ExtractedLoginAndPassword extractLoginAndPassword(const std::string& encodedStr) {
         std::istringstream is(encodedStr);
         Poco::Base64Decoder decoder(is);
 
-        std::string decodedString(std::istreambuf_iterator<char>(decoder), 
-std::istreambuf_iterator<char>{});
+        std::string decodedString(std::istreambuf_iterator<char>(decoder), std::istreambuf_iterator<char>{});
 
         auto idx = decodedString.find(':');
         if (idx == std::string::npos) {
             return std::nullopt;
         }
 
-        return ExtractedLoginAndPassword{std::in_place, 
-decodedString.substr(0, idx),
-                                         decodedString.substr(idx + 1)};
+        return ExtractedLoginAndPassword{std::in_place, decodedString.substr(0, idx), decodedString.substr(idx + 1)};
     }
 }
 

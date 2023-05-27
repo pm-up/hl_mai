@@ -6,6 +6,5 @@ class HealthcheckHandler : public Poco::Net::HTTPRequestHandler {
 public:
     static constexpr auto* HealthcheckUri = "/healthcheck";
 
-    void handleRequest(Poco::Net::HTTPServerRequest&, 
-Poco::Net::HTTPServerResponse& response) override;
+    void handleRequest(Poco::Net::HTTPServerRequest&, Poco::Net::HTTPServerResponse& response) override;
 };

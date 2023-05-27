@@ -18,14 +18,11 @@ namespace {
     }
 }
 
-DatabaseSessionManager::DatabaseSessionManager(const DatabaseConfig& 
-config) {
+DatabaseSessionManager::DatabaseSessionManager(const DatabaseConfig& config) {
     Poco::Data::MySQL::Connector::registerConnector();
 
-    pool_ = 
-std::make_unique<Poco::Data::SessionPool>(Poco::Data::MySQL::Connector::KEY,
-                                                      
-getConnectionString(config));
+    pool_ = std::make_unique<Poco::Data::SessionPool>(Poco::Data::MySQL::Connector::KEY,
+                                                      getConnectionString(config));
 }
 
 DatabaseSessionManager& DatabaseSessionManager::get() {

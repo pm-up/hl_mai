@@ -1,14 +1,13 @@
-#include "cart_base.h"
+#include "cpp/cart_service/include/cart_base.h"
 
-#include <db_session_manager.h>
+#include "cpp/utils/include/db_session_manager.h"
 
 using namespace Poco::Data::Keywords;
 
 void CartBase::initialize() {
     auto session = DatabaseSessionManager::get().getSession();
 
-    session << "CREATE TABLE IF NOT EXISTS `Cart` (`id` INT NOT NULL 
-PRIMARY KEY AUTO_INCREMENT, "
+    session << "CREATE TABLE IF NOT EXISTS `Cart` (`id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT, "
                "`user_id` INT NOT NULL, "
                "`product_id` INT NOT NULL, "
                "`quantity` INT NOT NULL, "
@@ -23,20 +22,17 @@ void CartBase::addItemToCart(int userId, int itemId, int quantity) {
 
     int count = 0;
     Poco::Data::Statement select(session);
-    select << "SELECT quantity FROM Cart WHERE user_id=? AND 
-product_id=?", into(count), use(
+    select << "SELECT quantity FROM Cart WHERE user_id=? AND product_id=?", into(count), use(
             userId), use(itemId);
     select.execute();
 
     Poco::Data::Statement modify(session);
     if (count) {
         count += quantity;
-        modify << "UPDATE Cart SET quantity=? WHERE user_id=? AND 
-product_id=?", use(count), use(
+        modify << "UPDATE Cart SET quantity=? WHERE user_id=? AND product_id=?", use(count), use(
                 userId), use(itemId);
     } else {
-        modify << "INSERT INTO Cart (user_id, product_id, quantity) 
-VALUES(?, ?, ?)", use(
+        modify << "INSERT INTO Cart (user_id, product_id, quantity) VALUES(?, ?, ?)", use(
                 userId), use(itemId), use(quantity);
     }
 
@@ -51,8 +47,7 @@ Cart CartBase::getCartForUser(int userId) {
 
     Poco::Data::Statement select(session);
 
-    select << "SELECT product_id, quantity FROM Cart WHERE user_id=?", 
-into(itemId), into(
+    select << "SELECT product_id, quantity FROM Cart WHERE user_id=?", into(itemId), into(
             quantity), use(userId), range(0, 1);
 
     while (!select.done()) {
