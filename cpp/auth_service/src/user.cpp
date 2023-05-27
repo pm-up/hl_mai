@@ -1,4 +1,4 @@
-#include "user.h"
+#include "cpp/auth_service/include/user.h"
 
 #include <Poco/JSON/Object.h>
 #include <Poco/JSON/Parser.h>
