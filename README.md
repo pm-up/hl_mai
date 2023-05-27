@@ -1,6 +1,6 @@
-# Highload-homework-MAI
+# Лабораторные работы по курсу Архитектура ПО
 
-Run with
+Run
 ```
 docker-compose --env-file config/db.env up
 ```
