@@ -30,4 +30,4 @@ add_executable(kafka_consumer
         src/user_base.cpp
         kafka_consumer.cpp)
 target_link_libraries(kafka_consumer PRIVATE utils CppKafka::CppKafka)
-target_include_directories(kafka_consumer PRIVATE include)
+target_include_directories(kafka_consumer PRIVATE utils include)
