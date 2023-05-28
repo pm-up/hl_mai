@@ -1,4 +1,4 @@
-#include "cpp/auth_service/include/user_validator.h"
+#include "auth_service/include/user_validator.h"
 
 #include <regex>
 #include <unordered_map>

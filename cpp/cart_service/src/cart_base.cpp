@@ -1,6 +1,6 @@
-#include "cpp/cart_service/include/cart_base.h"
+#include "cart_service/include/cart_base.h"
 
-#include "cpp/utils/include/db_session_manager.h"
+#include "utils/include/db_session_manager.h"
 
 using namespace Poco::Data::Keywords;
 

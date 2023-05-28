@@ -1,4 +1,4 @@
-#include "cpp/auth_service/include/user_base.h"
+#include "auth_service/include/user_base.h"
 
 #include <db_session_manager.h>
 

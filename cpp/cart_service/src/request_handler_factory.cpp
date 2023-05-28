@@ -1,9 +1,9 @@
-#include "cpp/utils/include/auth_data.h"
-#include "cpp/utils/include/authentication_request.h"
-#include "cpp/cart_service/include/cart_base.h"
-#include "cpp/utils/include/default_request_handler.h"
-#include "cpp/utils/include/healthcheck_handler.h"
-#include "cpp/cart_service/include/request_handler_factory.h"
+#include "utils/include/auth_data.h"
+#include "utils/include/authentication_request.h"
+#include "cart_service/include/cart_base.h"
+#include "utils/include/default_request_handler.h"
+#include "utils/include/healthcheck_handler.h"
+#include "cart_service/include/request_handler_factory.h"
 
 #include <Poco/Net/HTMLForm.h>
 #include <Poco/Net/HTTPServerRequest.h>

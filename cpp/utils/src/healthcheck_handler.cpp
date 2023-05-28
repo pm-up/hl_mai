@@ -1,4 +1,4 @@
-#include "cpp/utils/include/healthcheck_handler.h"
+#include "utils/include/healthcheck_handler.h"
 
 #include <Poco/Net/HTTPServerResponse.h>
 

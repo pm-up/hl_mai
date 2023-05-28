@@ -3,7 +3,7 @@ errorlog="/var/lib/proxysql/proxysql.log"
 
 admin_variables=
 {
-    admin_credentials="admin:admin;radmin:radmin"
+    admin_credentials="admin:admin;admin2:admin2"
     mysql_ifaces="0.0.0.0:6032"
     debug=true
 }
@@ -16,7 +16,7 @@ mysql_variables=
     default_schema="information_schema"
     server_version="8.0.17 (ProxySQL)"
     monitor_username="user"
-    monitor_password="An0thrS3crt"
+    monitor_password="tst_non_root_password"
     monitor_ping_interval=10000
 }
 
@@ -46,7 +46,7 @@ mysql_users:
 (
     {
     	username = "user"
-    	password = "An0thrS3crt"
+    	password = "tst_non_root_password"
     	default_hostgroup = 0
     	max_connections=200
     	default_schema="information_schema"

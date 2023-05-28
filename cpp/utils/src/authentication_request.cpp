@@ -1,5 +1,5 @@
-#include "cpp/utils/include/authentication_request.h"
-#include "cpp/utils/include/http_request_common.h"
+#include "utils/include/authentication_request.h"
+#include "utils/include/http_request_common.h"
 
 #include <Poco/Net/HTTPClientSession.h>
 #include <Poco/Net/HTTPRequest.h>
