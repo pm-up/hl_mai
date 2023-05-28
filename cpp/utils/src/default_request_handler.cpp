@@ -1,4 +1,4 @@
-#include "utils/include/default_request_handler.h"
+#include "default_request_handler.h"
 
 #include <Poco/Net/HTTPServerResponse.h>
 

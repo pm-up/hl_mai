@@ -1,4 +1,4 @@
-#include "utils/include/db_session_manager.h"
+#include "db_session_manager.h"
 
 #include <Poco/Data/MySQL/Connector.h>
 
