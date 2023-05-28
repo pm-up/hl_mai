@@ -17,4 +17,4 @@ add_library(utils
         src/http_request_common.cpp)
 
 target_include_directories(utils PUBLIC include)
-target_link_libraries(utils PUBLIC Poco::Poco)
+target_link_libraries(utils PUBLIC ${Poco_LIBRARIES} PocoDataMySQL)
