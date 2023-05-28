@@ -1,6 +1,6 @@
 #include "auth_service/include/authentication_common.h"
-#include "utils/include/default_request_handler.h"
-#include "utils/include/healthcheck_handler.h"
+#include "default_request_handler.h"
+#include "healthcheck_handler.h"
 #include "auth_service/include/kafka_config.h"
 #include "auth_service/include/request_handler_factory.h"
 #include "auth_service/include/user_base.h"

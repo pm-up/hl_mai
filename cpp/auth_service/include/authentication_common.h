@@ -1,6 +1,6 @@
 #pragma once
 
-#include "utils/include/auth_data.h"
+#include "auth_data.h"
 
 #include <string>
 
