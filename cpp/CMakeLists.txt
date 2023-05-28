@@ -51,7 +51,7 @@ target_link_libraries(${AUTH_SERVICE} PRIVATE utils
                              "mysqlclient"
                              ZLIB::ZLIB)
 
-add_subdirectory(utils)
+
 add_executable(${CART_SERVICE}   cart_service/main.cpp 
                                  cart_service/src/request_handler_factory.cpp
                                  cart_service/src/service_initializer.cpp
@@ -71,7 +71,6 @@ target_link_libraries(${CART_SERVICE} PRIVATE utils
                              "mysqlclient"
                              ZLIB::ZLIB)
 
-add_subdirectory(utils)
 add_executable(${PRODUCT_SERVICE} product_service/main.cpp 
                                  product_service/src/product_base.cpp
                                  product_service/src/product_validator.cpp
