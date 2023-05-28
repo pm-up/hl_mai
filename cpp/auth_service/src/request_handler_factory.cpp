@@ -1,11 +1,11 @@
-#include "auth_service/include/authentication_common.h"
+#include "authentication_common.h"
 #include "default_request_handler.h"
 #include "healthcheck_handler.h"
-#include "auth_service/include/kafka_config.h"
-#include "auth_service/include/request_handler_factory.h"
-#include "auth_service/include/user_base.h"
-#include "auth_service/include/user_cache.h"
-#include "auth_service/include/user_validator.h"
+#include "kafka_config.h"
+#include "request_handler_factory.h"
+#include "user_base.h"
+#include "user_cache.h"
+#include "user_validator.h"
 
 #include <Poco/Net/HTMLForm.h>
 #include <Poco/Net/HTTPServerRequest.h>
