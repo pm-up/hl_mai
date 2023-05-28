@@ -1,4 +1,4 @@
-#include "kafka_config.h"
+#include "include/kafka_config.h"
 
 const cppkafka::Configuration& KafkaConfig::get() {
     static KafkaConfig config;
