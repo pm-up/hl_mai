@@ -6,5 +6,5 @@ add_executable(cart_service
         main.cpp src/cart_base.cpp include/cart_base.h src/cart.cpp 
 include/cart.h)
 
-target_link_libraries(cart_service PRIVATE utils)
+target_link_libraries(cart_service PRIVATE utils redis++::redis++ CppKafka::CppKafka)
 target_include_directories(cart_service PRIVATE include)

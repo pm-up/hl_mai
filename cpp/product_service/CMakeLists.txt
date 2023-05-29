@@ -11,5 +11,5 @@ add_executable(product_service
         src/service_initializer.cpp
         main.cpp)
 
-target_link_libraries(product_service PRIVATE utils)
+target_link_libraries(product_service PRIVATE utils redis++::redis++ CppKafka::CppKafka)
 target_include_directories(product_service PRIVATE utils include)

@@ -20,14 +20,3 @@ add_executable(auth_service
 target_link_libraries(auth_service PRIVATE utils redis++::redis++ 
 CppKafka::CppKafka)
 target_include_directories(auth_service PRIVATE include)
-
-add_executable(kafka_consumer
-        include/kafka_config.h
-        include/user.h
-        include/user_base.h
-        src/kafka_config.cpp
-        src/user.cpp
-        src/user_base.cpp
-        kafka_consumer.cpp)
-target_link_libraries(kafka_consumer PRIVATE utils CppKafka::CppKafka)
-target_include_directories(kafka_consumer PRIVATE utils include)
