@@ -27,7 +27,7 @@ SET(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(utils)
-add_executable(${AUTH_SERVICE} auth_service/main.cpp 
+add_subdirectory(${AUTH_SERVICE} auth_service/main.cpp 
                                  auth_service/src/authentication_common.cpp
                                  auth_service/src/kafka_config.cpp
                                  auth_service/src/request_handler_factory.cpp
@@ -52,7 +52,7 @@ target_link_libraries(${AUTH_SERVICE} PRIVATE utils
                              ZLIB::ZLIB)
 
 
-add_executable(${CART_SERVICE}   cart_service/main.cpp 
+add_subdirectory(${CART_SERVICE}   cart_service/main.cpp 
                                  cart_service/src/request_handler_factory.cpp
                                  cart_service/src/service_initializer.cpp
                                  cart_service/src/cart_base.cpp
@@ -71,7 +71,7 @@ target_link_libraries(${CART_SERVICE} PRIVATE utils
                              "mysqlclient"
                              ZLIB::ZLIB)
 
-add_executable(${PRODUCT_SERVICE} product_service/main.cpp 
+add_subdirectory(${PRODUCT_SERVICE} product_service/main.cpp 
                                  product_service/src/product_base.cpp
                                  product_service/src/product_validator.cpp
                                  product_service/src/product.cpp

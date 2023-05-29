@@ -1,6 +1,6 @@
 #pragma once
 
-#include "utils/include/i_service_initializer.h"
+#include "i_service_initializer.h"
 
 class ServiceInitializer : public IServiceInitializer {
 public:
