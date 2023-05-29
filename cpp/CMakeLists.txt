@@ -27,15 +27,9 @@ SET(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_subdirectory(utils)
-add_subdirectory(${AUTH_SERVICE} auth_service/main.cpp 
-                                 auth_service/src/authentication_common.cpp
-                                 auth_service/src/kafka_config.cpp
-                                 auth_service/src/request_handler_factory.cpp
-                                 auth_service/src/service_initializer.cpp
-                                 auth_service/src/user_cache.cpp
-                                 auth_service/src/user_validator.cpp
-                                 auth_service/src/user_base.cpp
-                                 auth_service/src/user.cpp)
+add_subdirectory(${AUTH_SERVICE})
+add_subdirectory(${PRODUCT_SERVICE})
+add_subdirectory(${CART_SERVICE})
 
 
 target_include_directories(${AUTH_SERVICE} PRIVATE "${CMAKE_BINARY_DIR}")
@@ -51,13 +45,6 @@ target_link_libraries(${AUTH_SERVICE} PRIVATE utils
                              "mysqlclient"
                              ZLIB::ZLIB)
 
-
-add_subdirectory(${CART_SERVICE}   cart_service/main.cpp 
-                                 cart_service/src/request_handler_factory.cpp
-                                 cart_service/src/service_initializer.cpp
-                                 cart_service/src/cart_base.cpp
-                                 cart_service/src/cart.cpp)
-
 target_include_directories(${CART_SERVICE} PRIVATE "${CMAKE_BINARY_DIR}")
 target_compile_options(${CART_SERVICE} PRIVATE -Wall -Wextra -pedantic -Werror )
 set_target_properties(${CART_SERVICE} PROPERTIES LINKER_LANGUAGE CXX)
@@ -70,13 +57,6 @@ target_link_libraries(${CART_SERVICE} PRIVATE utils
                              "PocoDataMySQL"
                              "mysqlclient"
                              ZLIB::ZLIB)
-
-add_subdirectory(${PRODUCT_SERVICE} product_service/main.cpp 
-                                 product_service/src/product_base.cpp
-                                 product_service/src/product_validator.cpp
-                                 product_service/src/product.cpp
-                                 product_service/src/request_handler_factory.cpp
-                                 product_service/src/service_initializer.cpp)
 
 target_include_directories(${PRODUCT_SERVICE} PRIVATE "${CMAKE_BINARY_DIR}")
 target_compile_options(${PRODUCT_SERVICE} PRIVATE -Wall -Wextra -pedantic -Werror )
