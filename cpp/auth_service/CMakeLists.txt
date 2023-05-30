@@ -1,3 +1,16 @@
+SET (AUTH_SERVICE "auth_service")
+
+find_package(OpenSSL)
+find_package(Threads)
+find_package(Poco REQUIRED COMPONENTS Foundation Util Net XML JSON Crypto NetSSL Data)
+find_package(CppKafka REQUIRED)
+
+if(NOT ${Poco_FOUND})
+    message(FATAL_ERROR "Poco C++ Libraries not found.")
+endif()
+
+include_directories(${Poco_INCLUDE_DIRS})
+
 add_executable(auth_service
         include/authentication_common.h
         include/kafka_config.h
@@ -17,6 +30,19 @@ add_executable(auth_service
         src/user_validator.cpp
         main.cpp)
 
-target_link_libraries(auth_service PRIVATE utils redis++::redis++ 
-CppKafka::CppKafka)
-target_include_directories(auth_service PRIVATE include)
+target_include_directories(${AUTH_SERVICE} PRIVATE utils include)
+target_compile_options(${AUTH_SERVICE} PRIVATE -Wall -Wextra -pedantic -Werror )
+
+target_link_libraries(${AUTH_SERVICE} PRIVATE 
+                             ${CMAKE_THREAD_LIBS_INIT} 
+                             ${Poco_LIBRARIES}
+                             "PocoDataMySQL"
+                             "rdkafka++"
+                             redis++::redis++
+                             CppKafka::cppkafka
+                             "mysqlclient"
+                             ZLIB::ZLIB
+                             utils)
+
+set_target_properties(${AUTH_SERVICE} PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(${AUTH_SERVICE} PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)

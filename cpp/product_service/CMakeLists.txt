@@ -1,4 +1,17 @@
-add_executable(product_service
+SET (PRODUCT_SERVICE "product_service")
+
+find_package(OpenSSL)
+find_package(Threads)
+find_package(Poco REQUIRED COMPONENTS Foundation Util Net XML JSON Crypto NetSSL Data)
+find_package(CppKafka REQUIRED)
+
+if(NOT ${Poco_FOUND})
+    message(FATAL_ERROR "Poco C++ Libraries not found.")
+endif()
+
+include_directories(${Poco_INCLUDE_DIRS})
+
+add_executable(${PRODUCT_SERVICE}
         include/product.h
         include/product_base.h
         include/product_validator.h
@@ -11,5 +24,19 @@ add_executable(product_service
         src/service_initializer.cpp
         main.cpp)
 
-target_link_libraries(product_service PRIVATE utils redis++::redis++ CppKafka::CppKafka)
-target_include_directories(product_service PRIVATE utils include)
+target_include_directories(${PRODUCT_SERVICE} PRIVATE utils include)
+target_compile_options(${PRODUCT_SERVICE} PRIVATE -Wall -Wextra -pedantic -Werror )
+
+target_link_libraries(${PRODUCT_SERVICE} PRIVATE 
+                             ${CMAKE_THREAD_LIBS_INIT} 
+                             ${Poco_LIBRARIES}
+                             "PocoDataMySQL"
+                             "rdkafka++"
+                             redis++::redis++
+                             CppKafka::cppkafka
+                             "mysqlclient"
+                             ZLIB::ZLIB
+                             utils)
+
+set_target_properties(${PRODUCT_SERVICE} PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(${PRODUCT_SERVICE} PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED ON)
