@@ -1,10 +1,5 @@
 SET (PRODUCT_SERVICE "product_service")
 
-find_package(OpenSSL)
-find_package(Threads)
-find_package(Poco REQUIRED COMPONENTS Foundation Util Net XML JSON Crypto NetSSL Data)
-find_package(CppKafka REQUIRED)
-
 if(NOT ${Poco_FOUND})
     message(FATAL_ERROR "Poco C++ Libraries not found.")
 endif()
