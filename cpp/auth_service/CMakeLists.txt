@@ -25,10 +25,10 @@ add_executable(auth_service
         src/user_validator.cpp
         main.cpp)
 
-target_include_directories(${AUTH_SERVICE} PRIVATE utils include)
-target_compile_options(${AUTH_SERVICE} PRIVATE -Wall -Wextra -pedantic -Werror )
+target_include_directories(${AUTH_SERVICE} PUBLIC utils include)
+target_compile_options(${AUTH_SERVICE} PUBLIC -Wall -Wextra -pedantic -Werror )
 
-target_link_libraries(${AUTH_SERVICE} PRIVATE 
+target_link_libraries(${AUTH_SERVICE} PUBLIC 
                              ${CMAKE_THREAD_LIBS_INIT} 
                              ${Poco_LIBRARIES}
                              "PocoDataMySQL"

@@ -19,10 +19,10 @@ add_executable(${PRODUCT_SERVICE}
         src/service_initializer.cpp
         main.cpp)
 
-target_include_directories(${PRODUCT_SERVICE} PRIVATE utils include)
-target_compile_options(${PRODUCT_SERVICE} PRIVATE -Wall -Wextra -pedantic -Werror )
+target_include_directories(${PRODUCT_SERVICE} PUBLIC utils include)
+target_compile_options(${PRODUCT_SERVICE} PUBLIC -Wall -Wextra -pedantic -Werror )
 
-target_link_libraries(${PRODUCT_SERVICE} PRIVATE 
+target_link_libraries(${PRODUCT_SERVICE} PUBLIC 
                              ${CMAKE_THREAD_LIBS_INIT} 
                              ${Poco_LIBRARIES}
                              "PocoDataMySQL"

@@ -17,10 +17,10 @@ add_executable(cart_service
         src/cart.cpp 
         include/cart.h)
 
-target_include_directories(${CART_SERVICE} PRIVATE utils include)
-target_compile_options(${CART_SERVICE} PRIVATE -Wall -Wextra -pedantic -Werror )
+target_include_directories(${CART_SERVICE} PUBLIC utils include)
+target_compile_options(${CART_SERVICE} PUBLIC -Wall -Wextra -pedantic -Werror )
 
-target_link_libraries(${CART_SERVICE} PRIVATE 
+target_link_libraries(${CART_SERVICE} PUBLIC 
                              ${CMAKE_THREAD_LIBS_INIT} 
                              ${Poco_LIBRARIES}
                              "PocoDataMySQL"
