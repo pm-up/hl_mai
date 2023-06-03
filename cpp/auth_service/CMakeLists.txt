@@ -31,7 +31,7 @@ target_compile_options(${AUTH_SERVICE} PUBLIC -Wall -Wextra -pedantic -Werror )
 target_link_libraries(${AUTH_SERVICE} PUBLIC 
                              ${CMAKE_THREAD_LIBS_INIT} 
                              ${Poco_LIBRARIES}
-                             "PocoDataMySQL"
+                             PocoDataMySQL
                              "rdkafka++"
                              redis++::redis++
                              CppKafka::cppkafka
